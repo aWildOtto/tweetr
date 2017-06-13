@@ -1,0 +1,23 @@
+.new-tweet {
+    border-radius: 7px;
+    background-color: #d5dae2;
+    margin-left: 2em;
+    margin-right: 2em;
+    border: 2px solid #6f7e96;
+    padding: 3px 5px 3px 5px;
+}
+
+.title {
+    border-bottom: 1px solid black; 
+  
+}
+
+.tweetArea {
+    width: 100%;
+}
+
+.counter {
+    float: right;
+    font-style: italic;
+    font-size: 80%
+}
