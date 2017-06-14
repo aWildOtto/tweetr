@@ -16,32 +16,56 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
-
+    
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>    
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png">
-      <span class="header">Tweeter</span>
+      <img class = "logo" src = "/images/bird.png">
+      <span class = "header">Tweeter</span>
     </nav>
 
     <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2 class="title">Compose Tweet</h2>
+    <main class = "container">
+
+      <section class = "new-tweet">
+        <h2 class = "btm_border_line">Compose Tweet</h2>
         <form action = '/tweets' method = 'POST'>
-          <textarea class = "tweetArea" name="text" placeholder="What are you humming about?"></textarea>
-          <input type="submit" value="Tweet">
-          <span class="counter">140</span>
+          <textarea class = "tweetArea" name = "text" placeholder = "What are you humming about?"></textarea>
+          <input type = "submit" value = "Tweet">
+          <span class = "counter">140</span>
         </form>
       </section>
+      
+
+      <section id = "all-tweets">
+        <article class="clear">
+          <header>
+            <img src="/images/ironman.png">
+            <span>Otto</span>
+            <p class = "handle">@Otto</a>
+          </header>
+          <p class = "headerP">asdfas</p>
+          <footer>
+            <p>asdasf</p>               
+            <div class="options">         
+              <a href="/"><img src="/images/like.png"></a>
+              <a href="/"><img src="/images/comment.png"></a>
+              <a href="/"><img src="/images/share.png"></a>
+            </div>
+          </footer>
+        </article>
+      </section>
+
     </main>
 
   </body>
