@@ -11,7 +11,7 @@ function escape(str) {
   return div.innerHTML;
 }
 function createTweetElement(data){
-    var timeAgo = moment(data.created_at).fromNow();
+    var time_ago = moment(data.created_at).fromNow();
     var str = `<article class="clear">
           <header>
             <img src="${data.user.avatars.regular}">
@@ -20,7 +20,7 @@ function createTweetElement(data){
           </header>
           <p class = "headerP">${escape(data.content.text)}</p>
           <footer>
-            <p>${timeAgo}</p>               
+            <p>${time_ago}</p>               
             <div class="options">         
               <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
               <i class="fa fa-commenting-o" aria-hidden="true"></i>

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('.tweetArea').first().on("input",function(){
+    $('.tweet_area').first().on("input",function(){
         var len = $(this).val().length;
         var counter = $('.counter').first();
         counter.text(140-len);
