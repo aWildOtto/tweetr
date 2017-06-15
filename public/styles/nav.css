@@ -22,3 +22,15 @@ nav#nav-bar {
   height: 80px;
   float: left;
 }
+
+#compose {
+    float: right;
+    height: 80px;
+    width: 80px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.clicked {
+    opacity: 0.5;
+}

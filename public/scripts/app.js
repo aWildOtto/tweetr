@@ -5,17 +5,13 @@
 */
 
 $(function(){
-
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
-
 function createTweetElement(data){
-
     var timeAgo = moment(data.created_at).fromNow();
-
     var str = `<article class="clear">
           <header>
             <img src="${data.user.avatars.regular}">
@@ -50,28 +46,44 @@ function renderTweets(data){
     $('#all-tweets').append(createTweetElement(i));
   }
 }
-// Test / driver code (temporary). Eventually will get this from the server.
+function flashMsg(str){
+  $(".tweetArea").after(`<p id = 'flash'>${str}</p>`);
+  setTimeout(function(){
+    $("#flash").fadeOut();
+    $("#flash").remove();
+  },2000);
+}
 
+$("#compose").on("click",function(){
+  $(".new-tweet").slideToggle(500,function(){
+    $(".new-tweet").find("textarea").focus();
+  });
+});
 
-    // var $tweet = createTweetElement(tweetData);
-
-    // // Test / driver code (temporary)
-    // console.log($tweet); // to see what it looks like
-    loadTweets();
+loadTweets();
 $("#newtweetsubmit").on("submit",function(event){
-      console.log("hi");
       event.preventDefault();
+      var tweeted = $(".tweetArea").val();
+
+      if(tweeted.length === 0){
+        flashMsg("Empty tweet");
+        return;
+      }else if(tweeted.length > 140){
+        flashMsg("Over the limit");
+        return;
+      }else if(tweeted === null){
+        flashMsg("Message null");
+        return;
+      }
+      
       $.ajax({
         method: 'POST',
         url: '/tweets',
         data: $(this).serialize()
       }).done(function(){
-        
+        $(".tweetArea").val("");
         loadTweets();
       });
     });
-    
 
-
-   
 });
