@@ -22,9 +22,9 @@ function createTweetElement(data){
           <footer>
             <p>${timeAgo}</p>               
             <div class="options">         
-              <a href="/"><img src="/images/like.png"></a>
-              <a href="/"><img src="/images/comment.png"></a>
-              <a href="/"><img src="/images/share.png"></a>
+              <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+              <i class="fa fa-commenting-o" aria-hidden="true"></i>
+              <i class="fa fa-retweet" aria-hidden="true"></i>
             </div>
           </footer>
         </article>`;
@@ -40,14 +40,14 @@ function loadTweets(){
 
 }
 function renderTweets(data){
-  $('#all-tweets').empty();
+  $('#all_tweets').empty();
   var reversedData = data.reverse(); 
   for(var i of reversedData){
-    $('#all-tweets').append(createTweetElement(i));
+    $('#all_tweets').append(createTweetElement(i));
   }
 }
 function flashMsg(str){
-  $(".tweetArea").after(`<p id = 'flash'>${str}</p>`);
+  $(".tweet_area").after(`<p id = 'flash'>${str}</p>`);
   setTimeout(function(){
     $("#flash").fadeOut();
     $("#flash").remove();
@@ -55,15 +55,15 @@ function flashMsg(str){
 }
 
 $("#compose").on("click",function(){
-  $(".new-tweet").slideToggle(500,function(){
-    $(".new-tweet").find("textarea").focus();
+  $(".new_tweet").slideToggle(500,function(){
+    $(".new_tweet").find("textarea").focus();
   });
 });
 
 loadTweets();
-$("#newtweetsubmit").on("submit",function(event){
+$("#new_tweet_submit").on("submit",function(event){
       event.preventDefault();
-      var tweeted = $(".tweetArea").val();
+      var tweeted = $(".tweet_area").val();
 
       if(tweeted.length === 0){
         flashMsg("Empty tweet");
@@ -81,7 +81,7 @@ $("#newtweetsubmit").on("submit",function(event){
         url: '/tweets',
         data: $(this).serialize()
       }).done(function(){
-        $(".tweetArea").val("");
+        $(".tweet_area").val("");
         loadTweets();
       });
     });

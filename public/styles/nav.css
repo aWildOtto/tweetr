@@ -1,4 +1,4 @@
-nav#nav-bar {
+nav#nav_bar {
     top: 0;
     position: fixed;
     background: #00a087;
@@ -9,7 +9,7 @@ nav#nav-bar {
     z-index: 1;
 }
 
-#nav-bar .header {
+#nav_bar .header {
     color: #e8fdff;
     font-size: 200%;
     line-height:80px;
@@ -17,7 +17,7 @@ nav#nav-bar {
     padding-left: 10px;
 }
 
-#nav-bar .logo {
+#nav_bar .logo {
   width: 80px;
   height: 80px;
   float: left;
@@ -25,12 +25,17 @@ nav#nav-bar {
 
 #compose {
     float: right;
+    size: 500%;
     height: 80px;
     width: 80px;
     margin-right: 20px;
     cursor: pointer;
+    transition: transform .2s;
+    transform: scale(1);
 }
 
-.clicked {
-    opacity: 0.5;
+#compose:hover {
+    transition: transform .2s;
+    transform: scale(1.1);
 }
+

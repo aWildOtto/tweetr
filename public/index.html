@@ -24,38 +24,40 @@
     crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-
+    <script src="https://use.fontawesome.com/fb8db0f694.js"></script>
 
     
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>    
+    <script type="text/javascript" src="/scripts/interact.js"></script>    
+
 
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
-    <nav id="nav-bar">
+    <nav id="nav_bar">
       <img class = "logo" src = "/images/bird.png">
       <span class = "header">Tweeter</span>
-      <input type = "image" id = "compose" src = "/images/compose.png">
+      <i id = "compose" class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class = "container">
 
-      <section class = "new-tweet">
+      <section class = "new_tweet">
         <h2 class = "btm_border_line">Compose Tweet</h2>
-        <form id = "newtweetsubmit" action = '/tweets' method = 'POST'>
-          <textarea class = "tweetArea" name = "text" placeholder = "What are you humming about?"></textarea>
+        <form id = "new_tweet_submit" action = '/tweets' method = 'POST'>
+          <textarea class = "tweet_area" name = "text" placeholder = "What are you humming about?"></textarea>
           <input type = "submit" value = "Tweet">
           <span class = "counter">140</span>
         </form>
       </section>
       
 
-      <section id = "all-tweets">
+      <section id = "all_tweets">
       
       </section>
 
