@@ -1,16 +1,15 @@
 /*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
+ * Client-side JS logic
 */
 
 $(function(){
-function escape(str) {
+//-------------utility functions-----------------
+function escape(str) {//escape the tweet body to avoid cross-site scripting
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
-function createTweetElement(data){
+function createTweetElement(data){//create an actual html element with the tweets data
     var time_ago = moment(data.created_at).fromNow();
     var str = `<article class="clear">
           <header>
@@ -30,7 +29,7 @@ function createTweetElement(data){
         </article>`;
     return str;
 }
-function loadTweets(){
+function loadTweets(){//send a get request to the server to get data
   $.ajax({
     method: "GET",
     url: "/tweets"
@@ -39,14 +38,13 @@ function loadTweets(){
   });
 
 }
-function renderTweets(data){
+function renderTweets(data){//render all tweets onto html
   $('#all_tweets').empty();
-  var reversedData = data.reverse(); 
-  for(var i of reversedData){
-    $('#all_tweets').append(createTweetElement(i));
-  }
+  data.forEach(function(tweet){
+    $('#all_tweets').append(createTweetElement(tweet));
+  });
 }
-function flashMsg(str){
+function flashMsg(str){//send a flash message if a tweet is out of bound
   $(".tweet_area").after(`<p id = 'flash'>${str}</p>`);
   setTimeout(function(){
     $("#flash").fadeOut();
@@ -54,6 +52,7 @@ function flashMsg(str){
   },2000);
 }
 
+//-------------jquery actions--------------------
 $("#compose").on("click",function(){
   $(".new_tweet").slideToggle(500,function(){
     $(".new_tweet").find("textarea").focus();
@@ -69,10 +68,7 @@ $("#new_tweet_submit").on("submit",function(event){
         flashMsg("Empty tweet");
         return;
       }else if(tweeted.length > 140){
-        flashMsg("Over the limit");
-        return;
-      }else if(tweeted === null){
-        flashMsg("Message null");
+        flashMsg("Text length is over the limit");
         return;
       }
       
