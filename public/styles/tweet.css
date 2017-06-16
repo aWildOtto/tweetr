@@ -8,8 +8,8 @@
     
 }
 .headerP{
-    margin-top: 70px;
-    margin-left: 10px;
+    margin: 80px 10px 10px 10px;
+    word-wrap: break-word;
 }
 
 #all_tweets header{

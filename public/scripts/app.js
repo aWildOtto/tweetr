@@ -53,8 +53,8 @@ function flashMsg(str){//send a flash message if a tweet is out of bound
 }
 
 //-------------jquery actions--------------------
-$("#compose").on("click",function(){
-  $(".new_tweet").slideToggle(500,function(){
+$("#compose").on("click", function(){
+  $(".new_tweet").slideToggle(500, function(){
     $(".new_tweet").find("textarea").focus();
   });
 });
@@ -77,6 +77,7 @@ $("#new_tweet_submit").on("submit",function(event){
         url: '/tweets',
         data: $(this).serialize()
       }).done(function(){
+        $(".counter").text("140").removeClass('overLimit');
         $(".tweet_area").val("");
         loadTweets();
       });
