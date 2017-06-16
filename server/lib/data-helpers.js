@@ -9,16 +9,12 @@ module.exports = function makeDataHelpers(db) {
 
     // Saves a tweet to mongo db
     saveTweet: function(newTweet, callback) {
-      db.collection("tweets").insertOne(newTweet);
-      callback(null,true);
+      db.collection("tweets").insertOne(newTweet, null, callback);
     },
 
     // Get all tweets in mongo db, sorted by newest first
     getTweets: function(callback) {
-      const sortNewestFirst = (a, b) => a.created_at - b.created_at;
-      db.collection("tweets").find().sort({"created_at": -1}).toArray((err, tweets) => {
-        callback(err, tweets);
-      });
+      db.collection("tweets").find().sort({"created_at": -1}).toArray(callback);
     }
   };
 };
