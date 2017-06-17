@@ -1,0 +1,9 @@
+#nav_bar .login_btns {
+  margin-top: 2vh;
+  margin-left: 30vw;
+  float: left; }
+
+.logged_in {
+  display: none; }
+
+/*# sourceMappingURL=login_form.css.map */

@@ -1,26 +1,23 @@
 .new_tweet {
-    border-radius: 7px;
-    background-color: #BBDEFB;
-    margin-left: 1em;
-    margin-right: 1em;
-    border: 2px solid #6f7e96;
-    padding: 3px 5px 3px 5px;
-}
+  border-radius: 7px;
+  background-color: #BBDEFB;
+  margin-left: 1em;
+  margin-right: 1em;
+  border: 2px solid #6f7e96;
+  padding: 3px 5px 3px 5px; }
 
 .btm_border_line {
-    border-bottom: 1px solid #6f7e96; 
-}
+  border-bottom: 1px solid #6f7e96; }
 
 .tweet_area {
-    width: 100%;
-}
+  width: 100%; }
 
 .counter {
-    float: right;
-    font-style: italic;
-    font-size: 80%
-}
+  float: right;
+  font-style: italic;
+  font-size: 80%; }
 
 .overLimit {
-    color: red;
-}
+  color: red; }
+
+/*# sourceMappingURL=new-tweet.css.map */
