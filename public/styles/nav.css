@@ -1,41 +1,38 @@
 nav#nav_bar {
-    top: 0;
-    position: fixed;
-    background: #00a087;
-    height: 80px;
-    width: 100vw;
-    padding-left: 2em;
-    padding-right: 2em;
-    z-index: 1;
-}
+  top: 0;
+  position: fixed;
+  background: #00a087;
+  height: 80px;
+  width: 100vw;
+  padding-left: 2em;
+  padding-right: 2em;
+  z-index: 1; }
 
 #nav_bar .header {
-    color: #e8fdff;
-    font-size: 200%;
-    line-height:80px;
-    float: left;
-    padding-left: 10px;
-}
+  color: #e8fdff;
+  font-size: 200%;
+  line-height: 80px;
+  float: left;
+  padding-left: 10px; }
 
 #nav_bar .logo {
   width: 80px;
   height: 80px;
-  float: left;
-}
+  float: left; }
 
 #compose {
-    float: right;
-    size: 500%;
-    height: 80px;
-    width: 80px;
-    margin-right: 20px;
-    cursor: pointer;
-    transition: transform .2s;
-    transform: scale(1);
-}
+  float: right;
+  size: 500%;
+  height: 80px;
+  width: 80px;
+  margin-right: 20px;
+  margin-top: 1vh;
+  cursor: pointer;
+  transition: transform .2s;
+  transform: scale(1); }
 
 #compose:hover {
-    transition: transform .2s;
-    transform: scale(1.1);
-}
+  transition: transform .2s;
+  transform: scale(1.1); }
 
+/*# sourceMappingURL=nav.css.map */

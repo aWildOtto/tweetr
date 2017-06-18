@@ -1,5 +1,6 @@
 node_modules/
 .env
 .DS_Store
-/public/styles/*.scss
-/public/styles/*.map
+public/styles/*.scss
+public/styles/*.map
+.sass-cache

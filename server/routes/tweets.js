@@ -16,7 +16,16 @@ module.exports = function(DataHelpers) {
       }
     });
   });
-
+ 
+  tweetsRoutes.post("/like", function(req, res) {
+      DataHelpers.likeTweet(req.body.id,(err)=>{
+        if(err){
+          throw err;
+        }
+        res.status(201).end();
+      })
+    });
+ 
   tweetsRoutes.post("/", function(req, res) {
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
@@ -29,6 +38,7 @@ module.exports = function(DataHelpers) {
       content: {
         text: req.body.text
       },
+      likeCount: 0,
       created_at: Date.now()
     };
 

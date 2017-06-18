@@ -3,9 +3,12 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
     <!-- Roboto Condensed font -->
     <link id:'roboto' href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
@@ -17,11 +20,14 @@
 
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/login_form.css" type="text/css" />
 
     <!-- External JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.js" 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.js" >
     integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
     crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://use.fontawesome.com/fb8db0f694.js"></script>
@@ -40,8 +46,65 @@
     <nav id="nav_bar">
       <img class = "logo" src = "/images/bird.png">
       <span class = "header">Tweeter</span>
+      <div class = "login_btns">
+        <p class = "hidden_welcome welcome">Hi dear Tweeter user</p>
+        <button id="login" type="button" class="btn btn-info btn-lg" 
+        data-toggle="modal" data-target="#sign_up">Sign Up</button>
+        <button id="signup" type="button" class="btn btn-info btn-lg" 
+        data-toggle="modal" data-target="#log_in">Log In</button>
+      </div>
       <i id = "compose" class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i>
     </nav>
+    
+    <!-- sign up modal -->
+    <div id="sign_up" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">SIGN UP</h4>
+          </div>
+          <div class="modal-body">
+            <form id = "sign_up_form" class = "login_form" action = "/register" method = "POST">
+              <label for = "email">Email: </label>
+              <input id = "sign_up_email" class = "login_input" type = "email" name = "email" placeholder = "Your email">
+              <label for = "password">Password: </label>
+              <input id = "sign_up_pw" class = "login_input" type = "text" name = "password" placeholder = "password">
+              <input type = "submit" value = "Sign up">
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- log in modal -->
+    <div id="log_in" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">LOG IN</h4>
+          </div>
+          <div class="modal-body">
+            <form id="log_in_form" class = "login_form" action = "/login" method = "POST">
+              <label for = "email">Email: </label>
+              <input id = "log_in_email" class = "login_input" type = "email" name = "email" placeholder = "Your email">
+              <label for = "password">Password: </label>
+              <input id = "log_in_password" class = "login_input" type = "passwrod" name = "password" placeholder = "password">
+              <input type = "submit" value = "Log In">
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <!-- Page-specific (main) content here -->
     <main class = "container">

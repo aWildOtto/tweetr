@@ -1,0 +1,16 @@
+#nav_bar div {
+  margin-top: 2vh;
+  margin-left: 31vw;
+  float: left; }
+
+.welcome {
+  font-size: 150%;
+  position: fixed; }
+
+.hidden_welcome {
+  display: none; }
+
+.logged_in {
+  visibility: hidden; }
+
+/*# sourceMappingURL=login_form.css.map */
