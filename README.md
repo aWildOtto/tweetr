@@ -1,17 +1,19 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone. It uses JQuery, AJAX technologies for front-end and node.js and express.js for back-end
+Tweeter is a simple, single-page Twitter clone. It uses JQuery, AJAX technologies for front-end and node.js, express.js and mongo db for back-end.
 
-## features
+## Features
 Type in a tweet and post it onto the page.
 
-Sign up or log in to hit the like buttons or see how many likes there are for each tweet
+Tweets have randomly generated user names and avatars with tweeted time recorded.
 
-Click the edit button top right to hide or show the compose box
+Sign up or log in to hit the like buttons or see how many likes there are for each tweet.
+
+Click the edit button top right to hide or show the compose box.
 
 ## Screenshots
-![main page](screenshots/1.png)
 ![main page2](screenshots/2.png)
+![main page](screenshots/1.png)
 
 ## Getting Started
 
