@@ -1,9 +1,16 @@
-#nav_bar .login_btns {
+#nav_bar div {
   margin-top: 2vh;
-  margin-left: 30vw;
+  margin-left: 31vw;
   float: left; }
 
-.logged_in {
+.welcome {
+  font-size: 150%;
+  position: fixed; }
+
+.hidden_welcome {
   display: none; }
+
+.logged_in {
+  visibility: hidden; }
 
 /*# sourceMappingURL=login_form.css.map */

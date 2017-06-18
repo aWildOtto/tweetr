@@ -31,7 +31,16 @@
     font-family: sans-serif;
     font-size: 110%;
     float: left;
-    margin-top: 10px; }
+    margin: 10px 5px 0px 5px; }
+  #all_tweets footer div i {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 10px 5px 5px 5px;
+    transition: transform .2s;
+    transform: scale(1); }
+  #all_tweets footer div p {
+    margin-bottom: 2vh; }
 
 .headerP {
   margin: 80px 10px 10px 10px;
@@ -43,14 +52,6 @@
   float: right;
   margin-right: 5px;
   margin-top: 5px; }
-
-#all_tweets footer div i {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  margin: 5px 5px 5px 5px;
-  transition: transform .2s;
-  transform: scale(1); }
 
 #all_tweets footer div i:hover {
   transition: transform .2s;

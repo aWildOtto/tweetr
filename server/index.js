@@ -33,7 +33,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {//connect to mongo db
   app.use("/register", regRoute);
 
   app.listen(PORT, () => {
-    console.log("Example app listening on port " + PORT);
+    console.log("Tweeter server listening on port " + PORT);
   });
 });
 

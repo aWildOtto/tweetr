@@ -3,14 +3,16 @@
 */
 
 $(function(){
+  let logged_in = false;
 //-------------utility functions-----------------
   function escape(str) {//escape the tweet body to avoid cross-site scripting
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
-  function createTweetElement(data){//create an actual html element with the tweets data
+  function createTweetElement(data, logged){//create an actual html element with the tweets data
       var time_ago = moment(data.created_at).fromNow();
+      var likes = logged_in?`<p>${data.likeCount}</p>`:"";
       var str = `<article class="clear">
             <header>
               <img src="${data.user.avatars.regular}">
@@ -21,7 +23,8 @@ $(function(){
             <footer>
               <p>${time_ago}</p>               
               <div class="options">         
-                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                ${likes}
+                <i data-value = "${data._id}" class="like_btn fa fa-thumbs-o-up" aria-hidden="true"></i>
                 <i class="fa fa-commenting-o" aria-hidden="true"></i>
                 <i class="fa fa-retweet" aria-hidden="true"></i>
               </div>
@@ -53,6 +56,17 @@ $(function(){
   }
 
 //-------------jquery actions--------------------
+  $("body").on("click","i.like_btn",function(){
+    if(logged_in){
+      $.ajax({
+        method: 'POST',
+        url: '/tweets/like',
+        data: "id=" + $(this).data().value
+      }).done(function(){
+        loadTweets();
+      });
+    }
+  });
   $("#compose").on("click", function(){
     $(".new_tweet").slideToggle(500, function(){
       $(".new_tweet").find("textarea").focus();
@@ -71,7 +85,6 @@ $(function(){
           flashMsg("Text length is over the limit", $(".tweet_area"));
           return;
         }
-        
         $.ajax({
           method: 'POST',
           url: '/tweets',
@@ -82,11 +95,11 @@ $(function(){
           loadTweets();
         });
       });
-
-  $("#log_in").on("submit",function(event){
+//----------------AJAX login form submit-----------------------
+  $("#log_in_form").on("submit",function(event){
     event.preventDefault();
     var email = $("#log_in_email").val();
-    var pw = $("#log_in_pw").val();
+    var pw = $("#log_in_password").val();
     if(email.length === 0 || pw.length === 0){
       flashMsg("Password or email is empty", $(".modal_body").last());
       return;
@@ -96,12 +109,16 @@ $(function(){
         url: '/login',
         data: $(this).serialize()
       }).done(function(){
-        $("#login_btns").addClass("logged_in");
+        $("#log_in").modal("hide");
+        $("#login").hide();
+        $("#signup").hide();
+        $(".hidden_welcome").removeClass("hidden_welcome");
+        logged_in = true;
         loadTweets();
       });
   });
 
-  $("#sign_up").on("submit",function(event){
+  $("#sign_up_form").on("submit",function(event){
     event.preventDefault();
     var email = $("#sign_up_email").val();
     var pw = $("#sign_up_pw").val();
@@ -115,6 +132,8 @@ $(function(){
       data: $(this).serialize()
     }).done(function(){
       $("#login_btns").addClass("logged_in");
+      $("#sign_up").modal("hide");
+      logged_in = true;
       loadTweets();
     });
   });

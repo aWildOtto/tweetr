@@ -47,9 +47,10 @@
       <img class = "logo" src = "/images/bird.png">
       <span class = "header">Tweeter</span>
       <div class = "login_btns">
-        <button type="button" class="btn btn-info btn-lg" 
+        <p class = "hidden_welcome welcome">Hi dear Tweeter user</p>
+        <button id="login" type="button" class="btn btn-info btn-lg" 
         data-toggle="modal" data-target="#sign_up">Sign Up</button>
-        <button type="button" class="btn btn-info btn-lg" 
+        <button id="signup" type="button" class="btn btn-info btn-lg" 
         data-toggle="modal" data-target="#log_in">Log In</button>
       </div>
       <i id = "compose" class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i>
@@ -64,7 +65,7 @@
             <h4 class="modal-title">SIGN UP</h4>
           </div>
           <div class="modal-body">
-            <form id = "sign_up" class = "login_form" action = "/register" method = "POST">
+            <form id = "sign_up_form" class = "login_form" action = "/register" method = "POST">
               <label for = "email">Email: </label>
               <input id = "sign_up_email" class = "login_input" type = "email" name = "email" placeholder = "Your email">
               <label for = "password">Password: </label>
@@ -89,11 +90,11 @@
             <h4 class="modal-title">LOG IN</h4>
           </div>
           <div class="modal-body">
-            <form id="log_in" class = "login_form" action = "/login" method = "POST">
+            <form id="log_in_form" class = "login_form" action = "/login" method = "POST">
               <label for = "email">Email: </label>
               <input id = "log_in_email" class = "login_input" type = "email" name = "email" placeholder = "Your email">
               <label for = "password">Password: </label>
-              <input id = "log_in_email" class = "login_input" type = "text" name = "password" placeholder = "password">
+              <input id = "log_in_password" class = "login_input" type = "passwrod" name = "password" placeholder = "password">
               <input type = "submit" value = "Log In">
             </form>
           </div>
@@ -123,9 +124,6 @@
       </section>
 
     </main>
-
-
-
 
   </body>
 </html>

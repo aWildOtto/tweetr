@@ -19,7 +19,7 @@ function generateRandomString() {
 module.exports = function(DataHelpers) {
 
   regRoutes.post("/",(req,res)=>{
-    if (!req.body) {
+    if (!req.body.password || !req.body.email) {
         res.status(400).json({ error: 'invalid request: no data in POST body'});
         return;
     }
@@ -39,12 +39,14 @@ module.exports = function(DataHelpers) {
                 if (err) {
                     res.status(500).json({ error: err.message });
                 } else {
-                    res.status(201).send("seccuss");
+                    res.status(201).end("seccuss");
+                    return;
                 }
             });
         }
         else{
-            res.send("email used");
+            res.status(400).end("email used");
+            return;
         }
     });  
   });
