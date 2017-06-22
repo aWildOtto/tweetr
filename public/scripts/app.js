@@ -67,6 +67,7 @@ $(function(){
       });
     }
   });
+
   $("#compose").on("click", function(){
     $(".new_tweet").slideToggle(500, function(){
       $(".new_tweet").find("textarea").focus();
@@ -95,7 +96,7 @@ $(function(){
           loadTweets();
         });
       });
-//----------------AJAX login form submit-----------------------
+//----------------AJAX log in and sign up-----------------------
   $("#log_in_form").on("submit",function(event){
     event.preventDefault();
     var email = $("#log_in_email").val();

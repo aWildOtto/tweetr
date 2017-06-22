@@ -23,7 +23,7 @@ module.exports = function(DataHelpers) {
           throw err;
         }
         res.status(201).end();
-      })
+      });
     });
  
   tweetsRoutes.post("/", function(req, res) {
